@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-md-3 col-sm-4">Poste: <?php echo $offre['poste']; ?></div>
                         <div class="col-md-3 col-sm-4">niveau : <?php echo $offre['division'];  ?></div>
-                        <div class="col-md-4 col-sm-10">En savoir plus sur l'auteur  <a href="<?php echo site_url().'profil/view/'.$offre['id_user'];  ?>"  class="btn btn-info">ici</a></div>
+                        <div class="col-md-4 col-sm-10">En savoir plus sur l'auteur  <a href="<?php echo site_url().'profil/view/'.$offre['id_user'];  ?>"> <img  width="25px" height="25px" src="<?php echo site_url('assets/icons/navarrow.svg');?>"></a></div>
 
                     </div>
                     <div class="card-body">

@@ -21,7 +21,7 @@
                             <div class="col-md-2 col-sm-4"><?php if($offre['id_user']===$user):?><a class="float-left" href="<?php echo base_url('/offres/delete/'.$offre['offres_id']) ;?>" ><img class="float-left" width="20%" src="<?php echo site_url('assets/icons/cancel2.svg');?>"></a> <?php endif?></div>
                             <div class="col-md-3 col-sm-4">Poste: <?php echo $offre['poste']; ?></div>
                             <div class="col-md-3 col-sm-4">niveau : <?php echo $offre['division'];  ?></div>
-                            <div class="col-md-4 col-sm-10">En savoir plus sur l'auteur  <a href="<?php echo site_url().'profil/view/'.$offre['id_user'];  ?>"  class="btn btn-info">ici</a></div>
+                            <div class="col-md-4 col-sm-10">En savoir plus sur l'auteur  <a href="<?php echo site_url().'profil/view/'.$offre['id_user'];  ?>"  > <img  width="25px" height="25px" src="<?php echo site_url('assets/icons/navarrow.svg');?>"></a></div>
 
                         </div>
                         <div class="card-body">
@@ -49,7 +49,7 @@
                             <div class="col-md-2 col-sm-4"><?php if($offrej['id_user']===$user):?><a class="float-left" href="<?php echo base_url('/offres/delete/'.$offrej['offres_id']) ;?>" ><img class="float-left" width="20%" src="<?php echo site_url('assets/icons/cancel2.svg');?>"></a> <?php endif?></div>
                             <div class="col-md-3 col-sm-4">Poste: <?php echo $offrej['poste']; ?></div>
                             <div class="col-md-3 col-sm-4">niveau : <?php echo $offrej['division'];  ?></div>
-                            <div class="col-md-4 col-sm-10">Profil du joueur  <a href="<?php echo site_url().'profil/view/'.$offrej['id_user'];  ?>"  class="btn btn-info">ici</a></div>
+                            <div class="col-md-4 col-sm-10">Profil du joueur  <a href="<?php echo site_url().'profil/view/'.$offrej['id_user'];  ?>">  <img  width="25px" height="25px" src="<?php echo site_url('assets/icons/navarrow.svg');?>"></a></div>
 
                         </div>
                         <div class="card-body">
@@ -76,7 +76,7 @@
                         <div class="col-md-2 col-sm-4"><?php if($offrec['id_user']===$user):?><a class="float-left" href="<?php echo base_url('/offres/delete/'.$offrec['offres_id']) ;?>" ><img class="float-left" width="20%" src="<?php echo site_url('assets/icons/cancel2.svg');?>"></a> <?php endif?></div>
                         <div class="col-md-3 col-sm-4">Poste: <?php echo $offrec['poste']; ?></div>
                         <div class="col-md-3 col-sm-4">niveau : <?php echo $offrec['division'];  ?></div>
-                        <div class="col-md-4 col-sm-10">Profil du Club <a href="<?php echo site_url().'profil/view/'.$offrec['id_user'];  ?>"  class="btn btn-info">ici</a></div>
+                        <div class="col-md-4 col-sm-10">Profil du Club <a href="<?php echo site_url().'profil/view/'.$offrec['id_user'];  ?>"> <img  width="25px" height="25px" src="<?php echo site_url('assets/icons/navarrow.svg');?>"></a></div>
 
                     </div>
                         <div class="card-body">
