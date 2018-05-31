@@ -15,28 +15,26 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url().'Pages/view';?>"><img width="7%" src="<?php echo base_url('assets/icons/home.svg');?>">  home </a>
+                        <a class="nav-link" href="<?php echo base_url().'Pages/view';?>"><img width="25" height="25" src="<?php echo base_url('assets/icons/home.svg');?>">  home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo site_url().'Profil/view/'.$this->Token_model->isLog();?>"><img width="7%" src="<?php echo base_url('assets/icons/avatar.svg');?>">  Profil </a>
+                        <a class="nav-link" href="<?php echo site_url().'Profil/view/'.$this->Token_model->isLog();?>"><img width="25" height="25" src="<?php echo base_url('assets/icons/avatar.svg');?>">  Profil </a>
                     </li>
 
                     <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url().'offres';?>"><img width="7%" src="<?php echo base_url('assets/icons/offre.svg');?>">  Offres  </a>
+                        <a class="nav-link" href="<?php echo base_url().'offres';?>"><img width="25" height="25" src="<?php echo base_url('assets/icons/offre.svg');?>">  Offres  </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url().'offres/recherche';?>"><img width="7%" src="<?php echo base_url('assets/icons/white-loupe.svg');?>">  Recherche</a>
+                        <a class="nav-link" href="<?php echo base_url().'offres/recherche';?>"><img width="25" height="25" src="<?php echo base_url('assets/icons/white-loupe.svg');?>">  Recherche</a>
                     </li>
 
 
                 </ul>
                 <form class="form-inline nav-item dropdown my-2 my-lg-0">
-                    <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #9e0600 !important;">
-                        Deconnexion
+                    <a class="nav-link  " href="<?php echo base_url().'user/logout';?>" id="navbarDropdown" role="button"  aria-expanded="false" >
+                        <img src="<?php echo base_url().'assets/icons/off.svg';?>" width="25" height="25" class="d-inline-block align-top mr-1" alt="">
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="<?php echo base_url().'user/logout';?>">Cet appareil</a>
-                        <a class="dropdown-item" href="#">tout les appareils</a></div>
+                    
                 </form>
             </div>
         </nav>
