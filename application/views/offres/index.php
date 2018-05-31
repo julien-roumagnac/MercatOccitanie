@@ -18,9 +18,9 @@
 
                 
 
-                <div class="modal-header bg-dark text-light">
+                <div class="modal-header  text-light" style="background-color: #13232f">
                     <h5 class="modal-title" id="exampleModalLabel">Creer Offre</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
 
                         <span aria-hidden="true">&times;</span>
                     </button>
