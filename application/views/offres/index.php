@@ -15,9 +15,15 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+<<<<<<< HEAD
                 <div class="modal-header card-header text-light">
                     <h5 class="modal-title" id="exampleModalLabel">Creer Offre</h5>
                     <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+=======
+                <div class="modal-header bg-dark text-light">
+                    <h5 class="modal-title" id="exampleModalLabel">Creer Offre</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+>>>>>>> 0b332598ff4d542ef85b6a72a20e93d705b5a3c0
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -50,8 +56,13 @@
 
                         </div>
                         <div class="modal-footer">
+<<<<<<< HEAD
                             <button type="button" class="btn " style ="background-color:#9e0e12 !important" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn ">ajout</button>
+=======
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn ">Submit</button>
+>>>>>>> 0b332598ff4d542ef85b6a72a20e93d705b5a3c0
                         </div>
                         </form>
                 </div>
