@@ -5,7 +5,60 @@
 <button type="button"  onclick="update(this)" class="offrebtn my-1" id="1">Offres les plus récentes</button>
 <button type="button"  onclick="update(this)" class="offrebtn my-1" id="2">Dernieres offres de joueurs </button>
 <button type="button"  onclick="update(this)" class="offrebtn my-1" id="3">Dernieres offres de Clubs</button>
-    <br>  <a href="<?php echo site_url('offres/create');?>" role="button" class="btn  btn-sm " style="background-color:#d0b83b !important">Ajoutez une offre </a> </p>
+    <br>
+    <!-- Button trigger modal -->
+    <button type="button" style="background-color:#d0b83b !important" class="btn btn-sm" data-toggle="modal" data-target="#exampleModal">
+        Ajoutez Offre
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-light">
+                    <h5 class="modal-title" id="exampleModalLabel">Creer Offre</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <?php echo validation_errors();
+                    echo form_open('offres/create');?>
+                    <div class="card my-3 ">
+
+                        <div class="container my-1 mx-auto">
+                            <div class="form-group ">
+                                <label for="poste">Poste </label>
+                                <select multiple name="poste_id" class="form-control" >
+                                    <?php foreach ($postes as $poste):?>
+                                        <option value="<?php echo $poste['poste_id'] ;?>" ><?php echo $poste['poste'] ;?></option>
+                                    <?php endforeach;?></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="niveau">Niveau </label>
+                                <select multiple name="niveau_id" class="form-control" >
+                                    <?php foreach ($niveaux as $niveau):?>
+                                        <option value="<?php echo $niveau['niveau_id'] ;?>" ><?php echo $niveau['division'] ;?></option>
+                                    <?php endforeach;?></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="poste">Description </label>
+                                <input type="text" class="form-control" name="desc" placeholder="Attiré par le jeu offensif et collectif">
+                            </div>
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn ">Submit</button>
+                        </div>
+                        </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="container" id="a">
