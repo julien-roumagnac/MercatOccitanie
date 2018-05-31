@@ -85,7 +85,7 @@
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h5 class="card-title"> <img src="<?php echo site_url('assets/icons/club-logo.svg');?>" width="20%"> Ajout ancien Club</h5>
+                        <h5 class="card-title"> <img src="<?php echo site_url('assets/icons/club-logo.svg');?>" width="30px" height="30px"> Ajout ancien Club</h5>
                         <?php echo form_open(site_url().'profil/ajout_old_club'); ?>
                         <input type="text" class="form-control" name="club" placeholder="FC polytech">
                         <button type="submit" class="btn mt-1" >envoyer</button>
@@ -96,7 +96,7 @@
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h5 class="card-title"><img src="<?php echo site_url('assets/icons/trophy.svg');?>" width="20%">Ajout Titre</h5>
+                        <h5 class="card-title"><img src="<?php echo site_url('assets/icons/trophy.svg');?>" width="30px" height="30px">Ajout Titre</h5>
                         <?php echo form_open(site_url().'profil/ajout_titre'); ?>
                         <input type="text" class="form-control" name="titre" placeholder="Champion de l'herault">
                         <button type="submit" class="btn mt-1" >envoyer</button>
@@ -107,7 +107,7 @@
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h5 class="card-title"><img src="<?php echo site_url('assets/icons/bio.svg');?>" width="20%"> Modif biographie</h5>
+                        <h5 class="card-title"><img src="<?php echo site_url('assets/icons/bio.svg');?>" width="30px" height="30px"> Modif biographie</h5>
                         <?php echo form_open(site_url().'profil/update'); ?>
                         <input type="text" class="form-control" name="bio" placeholder="Racontez votre histoire ">
                         <button type="submit" class="btn  mt-1" >envoyer</button>
@@ -118,7 +118,7 @@
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h5 class="card-title"><img src="<?php echo site_url('assets/icons/youtube-logo.svg');?>" width="20%"> Ajout Vidéo</h5>
+                        <h5 class="card-title"><img src="<?php echo site_url('assets/icons/youtube-logo.svg');?>" width="30px" height="30px"> Ajout Vidéo</h5>
                         <?php echo form_open(site_url().'profil/ajout_video'); ?>
                         <input type="text" class="form-control" name="video" placeholder="Entrez le lien youtube ici">
                         <button type="submit" class="btn  mt-1" >envoyer</button>

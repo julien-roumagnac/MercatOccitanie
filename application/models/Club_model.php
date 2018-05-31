@@ -41,8 +41,9 @@ class Club_model extends CI_Model{
     }
     public function update($id=NULL){
         $bio=$this->input->post('bio');
-        $this->db->query('UPDATE `joueur` SET `bio` = ? WHERE id_user=?',array($bio,$id));
+        $this->db->query('UPDATE `club` SET `description` = ? WHERE id_user=?',array($bio,$id));
     }
+
 
 
 }
