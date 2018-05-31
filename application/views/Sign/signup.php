@@ -10,7 +10,7 @@
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="<?php echo site_url().'/assets/css/signup.css';?>" rel="stylesheet">
+    <link href="<?php echo site_url().'assets/css/signup.css';?>" rel="stylesheet">
 
 </head>
 <body>
