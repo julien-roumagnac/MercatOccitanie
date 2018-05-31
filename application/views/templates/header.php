@@ -32,7 +32,7 @@
                 </ul>
                 <form class="form-inline nav-item dropdown my-2 my-lg-0">
                     <a class="nav-link dropdown-toggle btn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #9e0600 !important;">
-                        Deconnection
+                        Deconnexion
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="<?php echo base_url().'user/logout';?>">Cet appareil</a>
