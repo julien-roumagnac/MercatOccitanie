@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>webProject</title>
+        <title>MercatOccitanie</title>
     </head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet"  href="<?php echo site_url().'assets/css/style.css';?>">
