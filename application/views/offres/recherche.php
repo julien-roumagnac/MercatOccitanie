@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-light"><img width="25px" height="25px"> src="<?php echo base_url('assets/icons/white-loupe.svg')?>"></button>
+        <button type="submit" class="btn btn-light"><img width="25px" height="25px" src="<?php echo base_url('assets/icons/white-loupe.svg')?>"></button>
 
 
     </div>
