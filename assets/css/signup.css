@@ -22,7 +22,7 @@ button:focus {
 }
 
 
-.formu {
+form.jform {
     position: relative;
 
     background: #13232f;

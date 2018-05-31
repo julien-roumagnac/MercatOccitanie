@@ -30,7 +30,7 @@
 
 
 
-            <?php $attributes = array('class' => 'mx-auto mt-2 ', 'id' => 'formu');
+            <?php $attributes = array('class' => 'mx-auto mt-2 ', 'id' => 'formu', 'class'=>"jform display:block mx-auto mt-2");
             echo form_open(site_url().'user/create_player', $attributes); ?>
 
             <div class="form-row" >
@@ -97,7 +97,7 @@
     <div id = "eForm" >
        <?php
 
-       $attributes = array('class' => 'mx-auto mt-2', 'id' => 'formu');
+       $attributes = array('class' => 'mx-auto mt-2', 'id' => 'formu', 'class'=>"jform display:block mx-auto mt-2");
        echo form_open(site_url().'user/create_club', $attributes); ?>
 
 
