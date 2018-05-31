@@ -1,0 +1,53 @@
+.badge-info {
+    background-color: #1ab188 ;
+}
+
+
+.navbar{
+    background-color: #13232f;
+
+}
+
+.card-header {
+    background-color: rgba(165, 167, 175, 0.41);
+}
+.btn,.btn:focus,.btn:active ,btn:hover {
+    background-color: #1ab188 !important;
+    color : whitesmoke !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+}
+
+.scrollable-menu {
+     height: auto;
+     max-height: 130px;
+     overflow-x: hidden;
+}
+.jprofil {
+    background-color:rgba(165, 167, 175, 0.1) ;
+
+}
+div.card-header{
+    background-color: #13232f;
+}
+.cardtitle {
+    color:whitesmoke;
+}
+.offrebtn {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #1ab188;
+    border-color: whitesmoke;
+    width: 200px;
+    border: 0;
+    padding: 15px;
+    color: whitesmoke;
+    font-size: 14px;
+    outline: none;
+    font-weight: bold  ;
+}
+.deletebtn{
+
+}
