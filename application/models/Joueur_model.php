@@ -8,6 +8,7 @@ class Joueur_model extends CI_Model{
     }
 
     public function get_joueur($id=false){
+        $id=html_escape($id);
         if ($id===FALSE){
 
             $query =$this->db->query('SELECT nom,prenom,ville,num_phone,poste,division,club,bio,mail FROM joueur,niveau,poste,user WHERE poste_id=id_poste AND niveau_id=id_niveau AND user_id=id_user');
@@ -37,10 +38,11 @@ class Joueur_model extends CI_Model{
             'club'=> $this->input->post('club')
 
         );
+        $data=html_escape($data);
         return $this->db->insert('joueur',$data);
     }
     public function update($id=NULL){
-        $bio=$this->input->post('bio');
+        $bio=html_escape($this->input->post('bio'));
         $this->db->query('UPDATE `joueur` SET `bio` = ? WHERE id_user=?',array($bio,$id));
     }
 

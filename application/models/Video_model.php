@@ -6,8 +6,9 @@ class Video_model extends CI_Model{
     {
         $this->load->database();
     }
-    public function get_videos($id=FALSE)
-    {
+    public function get_videos($id=FALSE){
+        $id=html_escape($id);
+
         if ($id===FALSE){
 
             $query = $this->db->get('videos');
@@ -20,13 +21,14 @@ class Video_model extends CI_Model{
 
     }
     public function set_video($id){
-        $idlien=$this->Video_model->getVideoID($this->input->post('video'));
+        $id=html_escape($id);
+        $idlien=$this->Video_model->getVideoID(html_escape($this->input->post('video')));
         $this->db->query('INSERT INTO videos (id_user,id_lien) VALUES (?, ?);',array($id,$idlien));
     }
     private function getVideoID($url){
         preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
         if(isset($match[1])){
-            return $id = $match[1];
+            return $id = html_escape($match[1]);
         }
         return '00000';
     }

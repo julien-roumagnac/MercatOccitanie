@@ -7,10 +7,10 @@ class Titre_model extends CI_Model{
         $this->load->database();
     }
     public function get_titres($id=FALSE)
-    {
+    {   $id=html_escape($id);
         if ($id===FALSE){
 
-            $query = $this->db->get('titre');
+            $query = html_escape($this->db->get('titre'));
 
             return $query->result_array();}
         else {
@@ -20,7 +20,8 @@ class Titre_model extends CI_Model{
 
     }
     public function set_titre($id){
-        $newtitre=$this->input->post('titre');
+        $id=html_escape($id);
+        $newtitre=html_escape($this->input->post('titre'));
         $this->db->query('INSERT INTO titre (id_user,titre) VALUES (?, ?);',array($id,$newtitre));
     }
 
