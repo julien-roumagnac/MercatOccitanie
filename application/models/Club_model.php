@@ -42,7 +42,9 @@ class Club_model extends CI_Model{
         return $this->db->insert('club',$data);
     }
     public function update($id=NULL){
+
         $bio=html_escape($this->input->post('bio'));
+
         $this->db->query('UPDATE `club` SET `description` = ? WHERE id_user=?',array($bio,$id));
     }
 
