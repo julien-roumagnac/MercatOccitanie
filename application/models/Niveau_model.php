@@ -8,6 +8,7 @@ class Niveau_model extends CI_Model{
     }
     public function get_niveaux($id=FALSE)
     {
+        $id=html_escape($id);
         if ($id===FALSE){
 
             $query = $this->db->get('niveau');

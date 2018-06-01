@@ -8,6 +8,7 @@ class Club_model extends CI_Model{
     }
 
     public function get_club($id=false){
+        $id=html_escape($id);
         if ($id===FALSE){
 
             $query =$this->db->query('SELECT * FROM club,niveau as n1 ,niveau as n2 ,user WHERE n1.niveau_id=id_niveau1 AND n2.niveau_id=id_niveau2 AND user_id=id_user')->result_array();
@@ -37,12 +38,14 @@ class Club_model extends CI_Model{
             'description'=> $this->input->post('desc')
 
         );
+        $data=html_escape($data);
         return $this->db->insert('club',$data);
     }
     public function update($id=NULL){
-        $bio=$this->input->post('bio');
-        $this->db->query('UPDATE `joueur` SET `bio` = ? WHERE id_user=?',array($bio,$id));
+        $bio=html_escape($this->input->post('bio'));
+        $this->db->query('UPDATE `club` SET `description` = ? WHERE id_user=?',array($bio,$id));
     }
+
 
 
 }
