@@ -48,6 +48,8 @@ div.card-header{
     outline: none;
     font-weight: bold  ;
 }
-.deletebtn{
+ .timeline {
+    max-width: 500px;
+     overflow: auto;
 
 }
