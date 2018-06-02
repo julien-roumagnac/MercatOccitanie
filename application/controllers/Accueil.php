@@ -39,7 +39,7 @@ class Accueil extends CI_Controller{
         $this->form_validation->set_rules('poste_id','poste','required|in_list[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]',array('required'=>'Vous n\'avez pas rentré le %s','in_list'=> 'Vous avez essayé de rentrer plusieurs %s ou une valeur interdite' ));
         if ($this->form_validation->run()===FALSE){
 
-            $this->load->view('sign/inscription_player',$data);
+            $this->load->view('Sign/inscription_player',$data);
 
         }else {
             $this->User_model->create_user();
@@ -61,7 +61,7 @@ class Accueil extends CI_Controller{
 
         if ($this->form_validation->run()===FALSE){
 
-            $this->load->view('sign/inscription_club',$data);
+            $this->load->view('Sign/inscription_club',$data);
 
         }else {
             $this->User_model->create_user();
