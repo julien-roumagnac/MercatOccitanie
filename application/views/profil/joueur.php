@@ -80,12 +80,14 @@
 
 <?php if($viewid==$this->Token_model->isLog()) :?>
     <div class="useractions  card mb-5 ">
+
         <div class="card-header "><h3 class="cardtitle"> Modifications profil
                 <button type="button" class="btn  float-right" style="background-color: #ff3838 !important;" data-toggle="modal" data-target="#exampleModal">
                     Supprimer profil
                 </button>
             </h3>
         </div>
+
         <div class="row my-2 ">
             <div class="col-sm-3">
                 <div class="card">
