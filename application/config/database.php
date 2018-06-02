@@ -72,13 +72,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-
+$h=getenv('host');
+$p=getenv('password');
+$u=getenv('username');
+$d=getenv('database');
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'footmercato',
+	'hostname' => $h,
+	'username' => $u,
+	'password' => $p,
+	'database' => $d,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

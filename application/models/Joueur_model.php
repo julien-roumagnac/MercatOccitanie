@@ -50,6 +50,7 @@ class Joueur_model extends CI_Model{
         $id=html_escape($id);
         $this->db->query('DELETE FROM joueur WHERE id_user=?',$id);
     }
+
     public function getEquipe($id=null){
         $id=html_escape($id);
         return $this->db->query('SELECT club FROM joueur where id_user=?',$id)->row_array();
