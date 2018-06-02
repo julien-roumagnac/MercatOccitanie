@@ -1,5 +1,4 @@
 
-
     <div class="container row  mt-5">
         <div class="col-lg-6 col-md-12 col-sm-12 col-12 text-center">
             <img src="<?php echo base_url().'assets/icons/network.svg';?>" width="200" height="200" class="d-inline-block align-top mr-1" alt="">
