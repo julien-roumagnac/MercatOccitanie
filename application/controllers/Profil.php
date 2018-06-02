@@ -45,13 +45,47 @@ class Profil extends CI_Controller{
         }
 
     }
+    public function updateEquipe (){
+        $id=$this->Token_model->isLog();
+        $role=$this->User_model->get_role($id);
+        $this->form_validation->set_rules('equipe','Nouvelle equipe','required',array('required'=>'Vous n\'avez pas rentré de %s' ));
+        if($id){
+            if($this->form_validation->run()===FALSE){
+                redirect('profil/view/'.$id);
+
+            }
+            if($role==2){
+                $newTeam=html_escape($this->input->post('equipe'));
+
+                $lastTeam=$this->Joueur_model->getEquipe($id);
+                $lastTeam=$lastTeam['club'];
+
+                $this->Joueur_model->updateEquipe($id,$newTeam);
+                $this->Clubs_model->set_club($id,$lastTeam);
+                redirect('profil/view/'.$id);
+
+            }else {
+
+                redirect('profil/view/'.$id);
+            }
+        }
+        else{
+            redirect();
+        }
+    }
 
 
 
     public function update (){
         $id=$this->Token_model->isLog();
         $role=$this->User_model->get_role($id);
+        $this->form_validation->set_rules('bio','biographie','required',array('required'=>'Vous n\'avez pas rentré de %s' ));
+
         if($id){
+            if($this->form_validation->run()===FALSE){
+                redirect('profil/view/'.$id);
+
+            }
             if($role==2){
                 $this->Joueur_model->update($id);
                 redirect('profil/view/'.$id);
@@ -67,7 +101,12 @@ class Profil extends CI_Controller{
     }
     public function ajout_titre(){
         $id=$this->Token_model->isLog();
+        $this->form_validation->set_rules('titre','Succes','required',array('required'=>'Vous n\'avez pas rentré de %s' ));
         if($id){
+            if($this->form_validation->run()===FALSE){
+                redirect('profil/view/'.$id);
+
+            }
 
             $this->Titre_model->set_titre($id);
             redirect('profil/view/'.$id);
@@ -81,7 +120,8 @@ class Profil extends CI_Controller{
     public function ajout_old_club(){
         $id=$this->Token_model->isLog();
         if ($id){
-            $this->Clubs_model->set_club($id);
+            $equipe=$this->input->post('club');
+            $this->Clubs_model->set_club($id,$equipe);
             redirect('profil/view/'.$id);
         }else {
             redirect();
@@ -91,7 +131,12 @@ class Profil extends CI_Controller{
     }
     public function ajout_video(){
         $id=$this->Token_model->isLog();
+        $this->form_validation->set_rules('video','video','required',array('required'=>'Vous n\'avez pas rentré de %s' ));
         if ($id){
+            if($this->form_validation->run()===FALSE){
+                redirect('profil/view/'.$id);
+
+            }
             $this->Video_model->set_video($id);
             redirect('profil/view/'.$id);
         }else {
@@ -99,6 +144,35 @@ class Profil extends CI_Controller{
         }
 
 
+    }
+    public function delete (){
+        $id=$this->Token_model->isLog();
+        $role=$this->User_model->get_role($id);
+        if($id){
+            if($role==2){
+                $this->Joueur_model->delete_user($id);
+                $this->Clubs_model->delete_user($id);
+                $this->Video_model->delete_user($id);
+                $this->Titre_model->delete_user($id);
+                $this->Offre_model->delete_user($id);
+                $this->Token_model->delete_user($id);
+                $this->User_model->delete($id);
+                delete_cookie('logToken');
+                redirect();
+
+            }else {
+                $this->Club_model->delete_user($id);
+                $this->Titre_model->delete_user($id);
+                $this->Token_model->delete_user($id);
+                $this->Offre_model->delete_user($id);
+                $this->User_model->delete($id);
+                delete_cookie('logToken');
+                redirect();
+            }
+        }
+        else{
+            redirect();
+        }
     }
 
 

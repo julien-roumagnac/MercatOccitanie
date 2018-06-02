@@ -27,7 +27,7 @@
                 </ul> </div>
 
             <div class="col-md-6 col-sm-6 col-xs-6 card mt-1 py-1">
-                <h5>club actuel:  <?php echo $joueur['club'];?></h5>
+                <h5>Equipe actuelle:  <?php echo $joueur['club'];?></h5>
                 <button type="button" class="btn btn-default dropdown-toggle scrollable-menu display:block mx-auto" data-toggle="dropdown">Anciens clubs <span class="caret"></span></button>
                 <ul class="dropdown-menu scrollable-menu" role="menu">
                     <?php foreach ($clubs as $club):?>
@@ -80,40 +80,48 @@
 
 <?php if($viewid==$this->Token_model->isLog()) :?>
     <div class="useractions  card mb-5 ">
-        <div class="card-header"><h3 class="cardtitle"> Modifications profil</h3> </div>
+        <div class="card-header "><h3 class="cardtitle"> Modifications profil
+                <button type="button" class="btn  float-right" style="background-color: #ff3838 !important;" data-toggle="modal" data-target="#exampleModal">
+                    Supprimer profil
+                </button>
+            </h3>
+        </div>
         <div class="row my-2 ">
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h5 class="card-title"> <img src="<?php echo site_url('assets/icons/club-logo.svg');?>" width="30px" height="30px"> Ajout ancien Club</h5>
+                        <h5 class="card-title"><img src="<?php echo site_url('assets/icons/reload.svg');?>" width="30px" height="30px"> Equipe Actuelle </h5>
+                        <?php echo form_open(site_url().'profil/updateEquipe'); ?>
+                        <input type="text" class="form-control" name="equipe" placeholder="Entrez la nouvelle equipe que vous integrez">
+                        <button type="submit" class="btn  mt-1" >envoyer</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"> <img src="<?php echo site_url('assets/icons/club-logo.svg');?>" width="30px" height="30px"> Anciennes Equipes</h5>
                         <?php echo form_open(site_url().'profil/ajout_old_club'); ?>
-                        <input type="text" class="form-control" name="club" placeholder="FC polytech">
+                        <input type="text" class="form-control" name="club" placeholder="ex : Fabregues Senior">
                         <button type="submit" class="btn mt-1" >envoyer</button>
                         </form>
                     </div>
                 </div>
+
             </div>
             <div class="col-sm-3">
                 <div class="card">
                     <div class="card-body text-center">
                         <h5 class="card-title"><img src="<?php echo site_url('assets/icons/trophy.svg');?>" width="30px" height="30px">Ajout Titre</h5>
                         <?php echo form_open(site_url().'profil/ajout_titre'); ?>
-                        <input type="text" class="form-control" name="titre" placeholder="Champion de l'herault">
+                        <input type="text" class="form-control" name="titre" placeholder="ex : Champion de l'herault">
                         <button type="submit" class="btn mt-1" >envoyer</button>
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h5 class="card-title"><img src="<?php echo site_url('assets/icons/bio.svg');?>" width="30px" height="30px"> Modif biographie</h5>
-                        <?php echo form_open(site_url().'profil/update'); ?>
-                        <input type="text" class="form-control" name="bio" placeholder="Racontez votre histoire ">
-                        <button type="submit" class="btn  mt-1" >envoyer</button>
-                        </form>
-                    </div>
-                </div>
+
             </div>
             <div class="col-sm-3">
                 <div class="card">
@@ -127,7 +135,45 @@
                 </div>
             </div>
         </div>
+        <div class="row my-2 ">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><img src="<?php echo site_url('assets/icons/bio.svg');?>" width="30px" height="30px"> Modif biographie</h5>
+                        <?php echo form_open(site_url().'profil/update'); ?>
+                        <textarea class="form-control"  name="bio" rows="1" ></textarea>
 
+                        <button type="submit" class="btn  mt-1" >envoyer</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div></div>
+
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-light">
+                    <h5 class="modal-title" id="exampleModalLabel">Suppression Compte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Vous allez supprimer definitivement votre compte ette action n'est pas reversible. Si vous ne voulez pas cela appuyez sur close.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn " data-dismiss="modal">Close</button>
+                    <a href="<?php echo site_url().'profil/delete';?>"><button type="button" class="btn " style="background-color: #ff3838 !important;">Supprimer definitivement</button></a>
+                </div>
+            </div>
+        </div>
     </div>
 <?php endif?>
 

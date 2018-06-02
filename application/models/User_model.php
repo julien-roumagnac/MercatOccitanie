@@ -40,6 +40,10 @@ class User_model extends CI_Model{
         $role = $this->db->query('SELECT role FROM user WHERE user_id=?',$id)->row_array();
         return $role['role'];
     }
+    public function delete($id){
+        $id=html_escape($id);
+        $this->db->query('DELETE FROM user WHERE user_id=?',$id);
+    }
 
 
 }

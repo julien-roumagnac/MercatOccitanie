@@ -47,7 +47,10 @@ class Club_model extends CI_Model{
 
         $this->db->query('UPDATE `club` SET `description` = ? WHERE id_user=?',array($bio,$id));
     }
-
+    public function delete_user($id){
+        $id=html_escape($id);
+        $this->db->query('DELETE FROM club WHERE id_user=?',$id);
+    }
 
 
 }

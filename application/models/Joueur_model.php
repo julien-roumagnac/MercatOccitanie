@@ -42,9 +42,24 @@ class Joueur_model extends CI_Model{
         return $this->db->insert('joueur',$data);
     }
     public function update($id=NULL){
+        $id=html_escape($id);
         $bio=html_escape($this->input->post('bio'));
         $this->db->query('UPDATE `joueur` SET `bio` = ? WHERE id_user=?',array($bio,$id));
     }
+    public function delete_user($id){
+        $id=html_escape($id);
+        $this->db->query('DELETE FROM joueur WHERE id_user=?',$id);
+    }
+    public function getEquipe($id=null){
+        $id=html_escape($id);
+        return $this->db->query('SELECT club FROM joueur where id_user=?',$id)->row_array();
+
+    }
+    public function updateEquipe($id=NULL,$newTeam){
+        $id=html_escape($id);
+        $this->db->query('UPDATE joueur SET club = ? WHERE id_user=?',array($newTeam,$id));
+    }
+
 
 
 }
