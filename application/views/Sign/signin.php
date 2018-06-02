@@ -28,7 +28,7 @@
             <input type="text" name ="mail" placeholder="ex: xxxxx@bla.com"/>
             <input type="password" name="mdp" placeholder="password"/>
             <button>login</button>
-            <p class="message">Not registered? <a href="<?php echo site_url('Sign/signup');?>">Create an account</a></p>
+            <p class="message">Inscrivez-vous : <a href="<?php echo site_url('Accueil/inscriptionJoueur');?>"> Joueur</a> ou <a href="<?php echo site_url('Accueil/inscriptionClub');?>"> Club</a></p>
         </form>
     </div>
 </div>

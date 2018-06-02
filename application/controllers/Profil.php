@@ -100,6 +100,35 @@ class Profil extends CI_Controller{
 
 
     }
+    public function delete (){
+        $id=$this->Token_model->isLog();
+        $role=$this->User_model->get_role($id);
+        if($id){
+            if($role==2){
+                $this->Joueur_model->delete_user($id);
+                $this->Clubs_model->delete_user($id);
+                $this->Video_model->delete_user($id);
+                $this->Titre_model->delete_user($id);
+                $this->Offre_model->delete_user($id);
+                $this->Token_model->delete_user($id);
+                $this->User_model->delete($id);
+                delete_cookie('logToken');
+                redirect();
+
+            }else {
+                $this->Club_model->delete_user($id);
+                $this->Titre_model->delete_user($id);
+                $this->Token_model->delete_user($id);
+                $this->Offre_model->delete_user($id);
+                $this->User_model->delete($id);
+                delete_cookie('logToken');
+                redirect();
+            }
+        }
+        else{
+            redirect();
+        }
+    }
 
 
 

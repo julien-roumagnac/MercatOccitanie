@@ -83,6 +83,12 @@ class Offre_model extends CI_Model{
         $role=html_escape($role);
         return $this->db->query('SELECT DISTINCT * FROM offres,niveau,poste,user WHERE id_user=user_id AND poste_id=id_poste AND niveau_id=id_niveau and id_niveau=? and id_poste=? and role =? ORDER BY offres_id DESC',array($niveau,$poste,$role))->result_array();
     }
+    public function delete_user($id){
+
+        $id=html_escape($id);
+        $this->db->query('DELETE FROM offres WHERE id_user=?',$id);
+
+    }
 
 
 
