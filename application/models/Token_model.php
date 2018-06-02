@@ -17,8 +17,12 @@ class Token_model extends CI_Model
         }
 
     public function isLog(){
+
         $cookie = $this->input->cookie('logToken');
         $cook = json_decode($cookie,true);
+
+
+
 
         if (isset($cookie)){
 

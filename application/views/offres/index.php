@@ -15,9 +15,19 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header card-header text-light">
+
+
+
+
+                
+
+                <div class="modal-header  text-light" style="background-color: #13232f">
                     <h5 class="modal-title" id="exampleModalLabel">Creer Offre</h5>
                     <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+
+
+
+
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -50,8 +60,10 @@
 
                         </div>
                         <div class="modal-footer">
+
                             <button type="button" class="btn " style ="background-color:#9e0e12 !important" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn ">ajout</button>
+
                         </div>
                         </form>
                 </div>
@@ -61,8 +73,10 @@
     </div>
 </div>
 
-<div class="container " id="a" >
-    <div class="container card mt-3 " >
+
+<div class="container" id="a" >
+    <div class="container card mt-3" >
+
 
 
         <ul class="list-group list-group-flush py-3">
@@ -71,6 +85,7 @@
             <?php foreach($lastoffres as $offre) : ?>
                 <li class="list-group-item">
                     <div class="card mb-3">
+
                         <div class="card-header cardtitle row text-center" style="margin-left: 0px ; margin-right: 0px">
 
                             <div class="col-md-4 col-sm-6">Poste : <h6><?php echo $offre['poste']; ?></h6></div>
@@ -89,6 +104,7 @@
 
 
                             </div>
+
 
                         </div>
                         <div class="card-body">
@@ -104,7 +120,9 @@
     </div> </div>
 
 <div class="container" id="b">
+
     <div class="container card mt-3" >
+
 
 
         <ul class="list-group list-group-flush">
@@ -113,6 +131,7 @@
             <?php foreach($offresjoueurs as $offre) : ?>
                 <li class="list-group-item">
                     <div class="card mb-3">
+
                         <div class="card-header cardtitle row text-center" style="margin-left: 0px ; margin-right: 0px">
 
                             <div class="col-md-4 col-sm-6">Poste : <h6><?php echo $offre['poste']; ?></h6></div>
@@ -131,6 +150,7 @@
 
 
                             </div>
+
 
                         </div>
                         <div class="card-body">
@@ -150,7 +170,9 @@
         <div class="container card mt-3" >
 
 
+
             <ul class="list-group list-group-flush">
+
 
 
                 <?php foreach($offresclubs as $offre) : ?>

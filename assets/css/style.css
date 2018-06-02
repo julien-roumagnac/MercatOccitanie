@@ -48,7 +48,9 @@ div.card-header{
     font-size: 14px;
     outline: none;
     font-weight: bold  ;
-cursor:pointer;
+
+    cursor:pointer;
+
 
 }
  .timeline {
