@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <title>404 Page Not Found</title>
 <style type="text/css">
 
+
 ::selection { background-color: #E13300; color: white; }
 ::-moz-selection { background-color: #E13300; color: white; }
 
@@ -54,11 +55,15 @@ p {
 	margin: 12px 15px 12px 15px;
 }
 </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet"  href="<?php echo site_url().'assets/css/style.css';?>">
 </head>
 <body>
-	<div id="container">
-		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
+	<div id="container" class=" card-header text-center mx-5">
+		<h1 class="text-light"><?php echo $heading; ?></h1>
+		<p class="text-light">The page you requested was not found.</p>
+
+        <a  href="<?php echo site_url().'pages/view';?>" ><button type="button" class="btn"> Retour Accueil </button></a>
 	</div>
 </body>
 </html>

@@ -52,5 +52,11 @@ class Token_model extends CI_Model
         }
 
     }
+    public function delete_user($id){
+
+        $id=html_escape($id);
+        $this->db->query('DELETE FROM userstokens WHERE id_user=?',$id);
+
+    }
 
 }
