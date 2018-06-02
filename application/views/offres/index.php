@@ -82,7 +82,7 @@
         <ul class="list-group list-group-flush py-3">
 
 
-            <?php foreach($lastoffres as $offre) : ?>
+            <?php $i=0; foreach($lastoffres as $offre) : ?>
                 <li class="list-group-item">
                     <div class="card mb-3">
 
@@ -109,12 +109,39 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Description</h5>
-                            <p class="card-text">  <?php echo word_limiter($offre['description'],20); ?> </p>
-                            <a href="<?php echo site_url('/offres/view/'.$offre['offres_id']) ;?>" class="btn">plus</a>
+                            <p class="card-text">  <?php echo html_escape(word_limiter($offre['description'],20)); ?> </p>
+                            <button type="button" class="btn " data-toggle="modal" data-target="#<?php echo 'md'.$i;?>">
+                                Lire plus
+                            </button>
+
+                    </div>
+
+                    </div>
+
+                </li>
+                <!-- Modal -->
+                <div class="modal fade" id="<?php echo 'md'.$i;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Description</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <?php echo html_escape($offre['description']); ?>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                            </div>
                         </div>
                     </div>
-                </li>
-            <?php endforeach;?>
+                </div>
+
+
+                <?php $i=$i+1; endforeach;?>
         </ul>
 
     </div> </div>
@@ -128,7 +155,7 @@
         <ul class="list-group list-group-flush">
 
 
-            <?php foreach($offresjoueurs as $offre) : ?>
+            <?php $i=0;foreach($offresjoueurs as $offre) : ?>
                 <li class="list-group-item">
                     <div class="card mb-3">
 
@@ -155,12 +182,34 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Description</h5>
-                            <p class="card-text">  <?php echo word_limiter($offre['description'],20); ?> </p>
-                            <a href="<?php echo site_url('/offres/view/'.$offre['offres_id']) ;?>" class="btn">plus</a>
+                            <p class="card-text">  <?php echo html_escape(word_limiter($offre['description'],20)); ?> </p>
+                            <button type="button" class="btn " data-toggle="modal" data-target="#<?php echo 'mc'.$i;?>">
+                                Lire plus
+                            </button>
                         </div>
                     </div>
                 </li>
-            <?php endforeach;?>
+                <!-- Modal -->
+                <div class="modal fade" id="<?php echo 'mc'.$i;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Description</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <?php echo html_escape($offre['description']); ?>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php $i++; endforeach;?>
         </ul>
 
     </div>
@@ -175,7 +224,7 @@
 
 
 
-                <?php foreach($offresclubs as $offre) : ?>
+                <?php $i=0;foreach($offresclubs as $offre) : ?>
                     <li class="list-group-item">
                         <div class="card mb-3">
                             <div class="card-header cardtitle row text-center" style="margin-left: 0px ; margin-right: 0px">
@@ -200,15 +249,39 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">Description</h5>
-                                <p class="card-text">  <?php echo word_limiter($offre['description'],20); ?> </p>
-                                <a href="<?php echo site_url('/offres/view/'.$offre['offres_id']) ;?>" class="btn">plus</a>
+                                <p class="card-text">  <?php echo html_escape(word_limiter($offre['description'],20)); ?> </p>
+                                <button type="button" class="btn " data-toggle="modal" data-target="#<?php echo 'mb'.$i;?>">
+                                    Lire plus
+                                </button>
                             </div>
                         </div>
                     </li>
-                <?php endforeach;?>
+                    <!-- Modal -->
+                    <div class="modal fade" id="<?php echo 'mb'.$i;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Description</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <?php echo html_escape($offre['description']); ?>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php $i++; endforeach;?>
             </ul>
 
         </div></div>
+
+
 
 
 
