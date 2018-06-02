@@ -80,7 +80,7 @@
 
 
 
-        <ul class="list-group list-group-flush py-3">
+        <ul class="list-group list-group-flush ">
 
 
             <?php $i=0; foreach($lastoffres as $offre) : ?>
