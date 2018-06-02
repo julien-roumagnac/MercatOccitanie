@@ -86,6 +86,7 @@
                 </button>
             </h3>
         </div>
+
         <div class="row my-2 ">
             <div class="col-sm-3">
                 <div class="card">
@@ -150,6 +151,30 @@
 
             </div></div>
 
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-light">
+                    <h5 class="modal-title" id="exampleModalLabel">Suppression Compte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Vous allez supprimer definitivement votre compte ette action n'est pas reversible. Si vous ne voulez pas cela appuyez sur close.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn " data-dismiss="modal">Close</button>
+                    <a href="<?php echo site_url().'profil/delete';?>"><button type="button" class="btn " style="background-color: #ff3838 !important;">Supprimer definitivement</button></a>
+                </div>
+            </div>
+        </div>
     </div>
 
 

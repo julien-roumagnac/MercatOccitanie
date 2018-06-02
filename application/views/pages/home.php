@@ -2,7 +2,7 @@
     <div class="container row  mt-5">
         <div class="col-lg-6 col-md-12 col-sm-12 col-12 text-center">
             <img src="<?php echo base_url().'assets/icons/network.svg';?>" width="200" height="200" class="d-inline-block align-top mr-1" alt="">
-            <h5 class="mt-2">Décourvrir des joueurs et des clubs</h5>
+            <h5 class="mt-2">Décourvrir des joueurs et des clubs </h5>
             <a>En naviguant parmis les offres récentes, tu y verras les equipes ainsi que les joueurs actifs de ta ligue.</a>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12  col-12 text-center">
