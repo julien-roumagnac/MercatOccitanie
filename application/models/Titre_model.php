@@ -24,7 +24,12 @@ class Titre_model extends CI_Model{
         $newtitre=html_escape($this->input->post('titre'));
         $this->db->query('INSERT INTO titre (id_user,titre) VALUES (?, ?);',array($id,$newtitre));
     }
+    public function delete_user($id){
 
+        $id=html_escape($id);
+        $this->db->query('DELETE FROM titre WHERE id_user=?',$id);
+
+    }
 
 }
 

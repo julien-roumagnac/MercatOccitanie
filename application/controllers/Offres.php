@@ -117,11 +117,13 @@ class Offres extends CI_Controller{
     }
 
     public function delete($idoffre){
-        $last_url=$this->input->post('action');
+        $httpReferer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'pages/view';
         $auteur =$this->Offre_model->get_auteur($idoffre);
         if($auteur['id_user']===$this->Token_model->isLog()){
             $this->Offre_model->delete($idoffre);
-            redirect('pages/view');
+            redirect($httpReferer);
+        }else {
+            redirect($httpReferer);
         }
 
     }

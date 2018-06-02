@@ -23,6 +23,12 @@ class Clubs_model extends CI_Model{
         $newclub=$this->input->post('club');
         $this->db->query('INSERT INTO clubs (id_user,club) VALUES (?, ?);',array($id,$newclub));
     }
+    public function delete_user($id){
+
+            $id=html_escape($id);
+            $this->db->query('DELETE FROM clubs WHERE id_user=?',$id);
+
+    }
 
 
 }

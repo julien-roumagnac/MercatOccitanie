@@ -80,7 +80,8 @@
 
 <?php if($viewid==$this->Token_model->isLog()) :?>
     <div class="useractions  card mb-5 ">
-        <div class="card-header"><h3 class="cardtitle"> Modifications profil</h3> </div>
+        <div class="card-header "><h3 class="cardtitle"> Modifications profil <a class="float-right" href="<?php echo base_url('/profil/delete');?>" >
+                    <img class="" width="25px" height="25px"  src="<?php echo site_url('assets/icons/cancel2.svg');?>"></a></h3>   </div>
         <div class="row my-2 ">
             <div class="col-sm-3">
                 <div class="card">
