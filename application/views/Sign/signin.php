@@ -17,10 +17,16 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <!-- [endif]-->
 </head>
-<body class="bg-white">
+<body class=" container" style="background-image: url('<?php echo site_url().'assets/img/bg-soccer2.png';?>');
 
-<div class="login-page">
-    <div class="form mx-auto display:block">
+
+        height: 1300px;
+        background-repeat: repeat-y;
+        position: relative;-webkit-background-size: cover;
+        background-size: cover; ">
+
+<div class="login-page row" >
+    <div class="form mx-auto my-5 display:block col-md-10">
 
         <?php $attributes = array('class' => 'login-form');
         echo form_open(site_url().'user/connect', $attributes); ?>
@@ -28,7 +34,7 @@
             <input type="text" name ="mail" placeholder="ex: xxxxx@bla.com"/>
             <input type="password" name="mdp" placeholder="password"/>
             <button>login</button>
-            <p class="message">Not registered? <a href="<?php echo site_url('Sign/signup');?>">Create an account</a></p>
+            <p class="message">Inscrivez-vous : <a href="<?php echo site_url('Accueil/inscriptionJoueur');?>"> Joueur</a> ou <a href="<?php echo site_url('Accueil/inscriptionClub');?>"> Club</a></p>
         </form>
     </div>
 </div>

@@ -25,6 +25,9 @@ class Offres extends CI_Controller{
         $data['poste']='-1';
         $data['niveau']='-1';
         $data['role']='-1';
+        $this->form_validation->set_rules('role','Type d\'offre','required',array('required'=>'Vous n\'avez pas rentré le %s' ));
+        $this->form_validation->set_rules('niveau_id','niveau ','required|in_list[-1,1,6,7,8,9,10]',array('required'=>'Vous n\'avez pas rentré le %s','in_list'=> 'Vous avez essayé de rentrer plusieurs %s ou une valeur inexistante' ));
+        $this->form_validation->set_rules('poste_id','poste','required|in_list[-1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]',array('required'=>'Vous n\'avez pas rentré le %s','in_list'=> 'Vous avez essayé de rentrer plusieurs %s ou une valeur interdite' ));
         if($idUser) {
             $data['niveaux']=$this->Niveau_model->get_niveaux();
             $data['postes']=$this->Poste_model->get_postes();
@@ -32,6 +35,14 @@ class Offres extends CI_Controller{
             $data['niveau']=$this->input->post('niveau_id');
             $data['role']=$this->input->post('role');
             $data['user'] = $idUser;
+            $data['offres']=array();
+            if($this->form_validation->run()===FALSE){
+                $this->load->view('templates/header');
+                $this->load->view('offres/recherche',$data);
+                $this->load->view('templates/footer');
+
+            }else{
+
 
 
             if ($data['poste']=='-1'&&'-1'==$data['niveau']&&$data['role']=='-1'){
@@ -71,29 +82,19 @@ class Offres extends CI_Controller{
             $this->load->view('templates/header');
             $this->load->view('offres/recherche',$data);
             $this->load->view('templates/footer');
-        }
+        }}
 
         else{
             redirect();
         }
     }
-    public function view($id= NULL){
-        if($this->Token_model->isLog()) {
-            $data['offre'] = $this->Offre_model->get_Offres($id);
-            if (empty($data['offre'])) {
-                show_404();
-            }
-            $this->load->view('templates/header', $data);
-            $this->load->view('offres/view', $data);
-            $this->load->view('templates/footer');
-        }else {
-            redirect();
-        }
 
-    }
+
+
     public function create(){
         $idUser=$this->Token_model->isLog();
         if($idUser){
+
             $data['title']='Creer Offre';
             $data['niveaux']=$this->Niveau_model->get_niveaux();
             $data['postes']=$this->Poste_model->get_postes();
@@ -105,7 +106,9 @@ class Offres extends CI_Controller{
 
             if ($this->form_validation->run()===FALSE){
 
-                redirect('offres/index');
+                $this->load->view('templates/header');
+                $this->load->view('offres/create',$data);
+                $this->load->view('templates/footer');
             }else {
                 $this->Offre_model->create_offre($idUser);
                 redirect('offres/index');
@@ -117,19 +120,17 @@ class Offres extends CI_Controller{
     }
 
     public function delete($idoffre){
-        $last_url=$this->input->post('action');
+        $httpReferer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'pages/view';
         $auteur =$this->Offre_model->get_auteur($idoffre);
         if($auteur['id_user']===$this->Token_model->isLog()){
             $this->Offre_model->delete($idoffre);
-            redirect('pages/view');
+            redirect($httpReferer);
+        }else {
+            redirect($httpReferer);
         }
 
     }
-    public function test(){
 
-        $this->load->view('templates/header');
-        $this->load->view('offres/test');
-    }
 
 }
 

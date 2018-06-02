@@ -10,7 +10,7 @@ class Offre_model extends CI_Model{
     {   $id=html_escape($id);
         if ($id===FALSE){
 
-            $query =$this->db->query('SELECT offres_id,description,poste,division,offres.id_user FROM offres,niveau,poste,user WHERE poste_id=offres.id_poste AND niveau_id=offres.id_niveau AND user.user_id=offres.id_user ORDER BY offres_id DESC');
+            $query =$this->db->query('SELECT offres_id,description,poste,division,offres.id_user,date_creation FROM offres,niveau,poste,user WHERE poste_id=offres.id_poste AND niveau_id=offres.id_niveau AND user.user_id=offres.id_user ORDER BY offres_id DESC');
 
 
             return $query->result_array();}
@@ -22,10 +22,10 @@ class Offre_model extends CI_Model{
 
     }
     public function get_Offres_joueurs(){
-        return $this->db->query('SELECT offres_id,description,poste,division,id_user FROM offres,niveau,poste WHERE poste_id=offres.id_poste AND niveau_id=offres.id_niveau AND id_user in (SELECT id_user FROM joueur ) ORDER BY offres_id DESC')->result_array() ;
+        return $this->db->query('SELECT offres_id,description,poste,division,id_user,date_creation FROM offres,niveau,poste WHERE poste_id=offres.id_poste AND niveau_id=offres.id_niveau AND id_user in (SELECT id_user FROM joueur ) ORDER BY offres_id DESC')->result_array() ;
     }
     public function get_Offres_clubs(){
-        return $this->db->query('SELECT offres_id,description,poste,division,id_user FROM offres,niveau,poste WHERE poste_id=offres.id_poste AND niveau_id=offres.id_niveau AND id_user in (SELECT id_user FROM club ) ORDER BY offres_id DESC')->result_array() ;
+        return $this->db->query('SELECT offres_id,description,poste,division,id_user,date_creation FROM offres,niveau,poste WHERE poste_id=offres.id_poste AND niveau_id=offres.id_niveau AND id_user in (SELECT id_user FROM club ) ORDER BY offres_id DESC')->result_array() ;
     }
 
     public function create_offre($iduser){
@@ -82,6 +82,12 @@ class Offre_model extends CI_Model{
         $niveau=html_escape($niveau);
         $role=html_escape($role);
         return $this->db->query('SELECT DISTINCT * FROM offres,niveau,poste,user WHERE id_user=user_id AND poste_id=id_poste AND niveau_id=id_niveau and id_niveau=? and id_poste=? and role =? ORDER BY offres_id DESC',array($niveau,$poste,$role))->result_array();
+    }
+    public function delete_user($id){
+
+        $id=html_escape($id);
+        $this->db->query('DELETE FROM offres WHERE id_user=?',$id);
+
     }
 
 

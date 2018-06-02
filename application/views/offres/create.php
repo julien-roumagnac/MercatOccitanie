@@ -1,6 +1,6 @@
 
 
-<?php echo validation_errors();
+<?php echo validation_errors('<p class="text-danger">','</p>');
 echo form_open('offres/create');?>
     <div class="card my-3 ">
         <div class="card-header cardtitle">
@@ -25,7 +25,14 @@ echo form_open('offres/create');?>
             <label for="poste">Description </label>
             <input type="text" class="form-control" name="desc" placeholder="Attiré par le jeu offensif et collectif">
         </div>
-            <button type="submit" class="btn ">Submit</button>
+            <button type="submit" class="btn ">Creer</button>
+
+            <a href="<?php echo site_url('offres');?>" class="float-right">
+                <button  type="button" class="btn " style ="background-color: #ff3838 !important">
+                    Annuler
+                </button>
+            </a>
+
 
 
         </div>

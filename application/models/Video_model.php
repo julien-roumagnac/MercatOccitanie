@@ -32,6 +32,12 @@ class Video_model extends CI_Model{
         }
         return '00000';
     }
+    public function delete_user($id){
+
+        $id=html_escape($id);
+        $this->db->query('DELETE FROM videos WHERE id_user=?',$id);
+
+    }
 
 
 }
