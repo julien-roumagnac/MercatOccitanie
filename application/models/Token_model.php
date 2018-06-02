@@ -6,6 +6,7 @@ class Token_model extends CI_Model
         $this->load->database();
     }
     public function  create_token($id,$token) {
+
         $hash = password_hash($token, PASSWORD_DEFAULT);
 
         $data = array(
@@ -18,6 +19,7 @@ class Token_model extends CI_Model
     public function isLog(){
         $cookie = $this->input->cookie('logToken');
         $cook = json_decode($cookie,true);
+
         if (isset($cookie)){
 
             $idUser=$cook['id'];
@@ -33,9 +35,11 @@ class Token_model extends CI_Model
 
     }
     public function get_tokens($id){
+        $id=html_escape($id);
         return  $this->db->query('SELECT * FROM userstokens WHERE id_user=?',$id)->result_array();
     }
     public function delete_token($iduser,$tok){
+
         $tokens = $this->Token_model->get_tokens($iduser);
         foreach ( $tokens as $token){
             if( password_verify($tok,$token['token'])){

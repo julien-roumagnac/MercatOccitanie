@@ -1,27 +1,94 @@
 
 
 <div class="text-center">
-    <h2 ><?=$title?></h2> <br>
+
 <button type="button"  onclick="update(this)" class="offrebtn my-1" id="1">Offres les plus récentes</button>
 <button type="button"  onclick="update(this)" class="offrebtn my-1" id="2">Dernieres offres de joueurs </button>
 <button type="button"  onclick="update(this)" class="offrebtn my-1" id="3">Dernieres offres de Clubs</button>
-    <br>  <a href="<?php echo site_url('offres/create');?>" role="button" class="btn  btn-sm " style="background-color:#d0b83b !important">Ajoutez une offre </a> </p>
+    <br>
+    <!-- Button trigger modal -->
+    <button type="button" style="background-color:#d0b83b !important" class="btn btn-sm" data-toggle="modal" data-target="#exampleModal">
+        Ajoutez Offre
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header card-header text-light">
+                    <h5 class="modal-title" id="exampleModalLabel">Creer Offre</h5>
+                    <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <?php echo validation_errors();
+                    echo form_open('offres/create');?>
+                    <div class="card my-3 ">
+
+                        <div class="container my-1 mx-auto">
+                            <div class="form-group ">
+                                <label for="poste">Poste </label>
+                                <select multiple name="poste_id" class="form-control" >
+                                    <?php foreach ($postes as $poste):?>
+                                        <option value="<?php echo $poste['poste_id'] ;?>" ><?php echo $poste['poste'] ;?></option>
+                                    <?php endforeach;?></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="niveau">Niveau </label>
+                                <select multiple name="niveau_id" class="form-control" >
+                                    <?php foreach ($niveaux as $niveau):?>
+                                        <option value="<?php echo $niveau['niveau_id'] ;?>" ><?php echo $niveau['division'] ;?></option>
+                                    <?php endforeach;?></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="poste">Description </label>
+                                <input type="text" class="form-control" name="desc" placeholder="Attiré par le jeu offensif et collectif">
+                            </div>
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn " style ="background-color:#9e0e12 !important" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn ">ajout</button>
+                        </div>
+                        </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="container" id="a">
-    <div class="container">
+<div class="container " id="a" >
+    <div class="container card mt-3 " >
 
-        <ul class="list-group list-group-flush">
+
+        <ul class="list-group list-group-flush py-3">
 
 
             <?php foreach($lastoffres as $offre) : ?>
                 <li class="list-group-item">
                     <div class="card mb-3">
-                        <div class="card-header cardtitle row text-center">
-                            <div class="col-md-2 col-sm-4"><?php if($offre['id_user']===$user):?><a class="float-left" href="<?php echo base_url('/offres/delete/'.$offre['offres_id']) ;?>" ><img class="float-left" width="20%" src="<?php echo site_url('assets/icons/cancel2.svg');?>"></a> <?php endif?></div>
-                            <div class="col-md-3 col-sm-4">Poste: <?php echo $offre['poste']; ?></div>
-                            <div class="col-md-3 col-sm-4">niveau : <?php echo $offre['division'];  ?></div>
-                            <div class="col-md-4 col-sm-10">En savoir plus sur l'auteur  <a href="<?php echo site_url().'profil/view/'.$offre['id_user'];  ?>"  > <img  width="25px" height="25px" src="<?php echo site_url('assets/icons/navarrow.svg');?>"></a></div>
+                        <div class="card-header cardtitle row text-center" style="margin-left: 0px ; margin-right: 0px">
+
+                            <div class="col-md-4 col-sm-6">Poste : <h6><?php echo $offre['poste']; ?></h6></div>
+                            <div class="col-md-4 col-sm-6">niveau : <h6><?php echo $offre['division'];  ?></h6></div>
+                            <div class="col-md-4 col-sm-10">
+                                <?php
+                                if ($offre['id_user']===$user) {
+                                    echo  '<a class="" href="'.base_url('/offres/delete/'.$offre['offres_id']).'" >
+                                        <img class="" width="25px" height="25px"  src="'.site_url('assets/icons/cancel2.svg').'"></a>';
+                                } else {
+                                    echo 'En savoir plus sur l\'auteur  <a href="'.site_url().'profil/view/'.$offre['id_user'].'\"  >
+                                    <img  width="25px" height="25px" src="'.site_url('assets/icons/navarrow.svg').'"> </a>';
+
+                                }
+                                ?>
+
+
+                            </div>
 
                         </div>
                         <div class="card-body">
@@ -37,25 +104,39 @@
     </div> </div>
 
 <div class="container" id="b">
-    <div class="container">
+    <div class="container card mt-3" >
+
 
         <ul class="list-group list-group-flush">
 
 
-            <?php foreach($offresjoueurs as $offrej) : ?>
+            <?php foreach($offresjoueurs as $offre) : ?>
                 <li class="list-group-item">
                     <div class="card mb-3">
-                        <div class="card-header cardtitle row text-center">
-                            <div class="col-md-2 col-sm-4"><?php if($offrej['id_user']===$user):?><a class="float-left" href="<?php echo base_url('/offres/delete/'.$offrej['offres_id']) ;?>" ><img class="float-left" width="20%" src="<?php echo site_url('assets/icons/cancel2.svg');?>"></a> <?php endif?></div>
-                            <div class="col-md-3 col-sm-4">Poste: <?php echo $offrej['poste']; ?></div>
-                            <div class="col-md-3 col-sm-4">niveau : <?php echo $offrej['division'];  ?></div>
-                            <div class="col-md-4 col-sm-10">Profil du joueur  <a href="<?php echo site_url().'profil/view/'.$offrej['id_user'];  ?>">  <img  width="25px" height="25px" src="<?php echo site_url('assets/icons/navarrow.svg');?>"></a></div>
+                        <div class="card-header cardtitle row text-center" style="margin-left: 0px ; margin-right: 0px">
+
+                            <div class="col-md-4 col-sm-6">Poste : <h6><?php echo $offre['poste']; ?></h6></div>
+                            <div class="col-md-4 col-sm-6">niveau : <h6><?php echo $offre['division'];  ?></h6></div>
+                            <div class="col-md-4 col-sm-10">
+                                <?php
+                                if ($offre['id_user']===$user) {
+                                    echo  '<a class="" href="'.base_url('/offres/delete/'.$offre['offres_id']).'" >
+                                        <img class="" width="25px" height="25px"  src="'.site_url('assets/icons/cancel2.svg').'"></a>';
+                                } else {
+                                    echo 'En savoir plus sur l\'auteur  <a href="'.site_url().'profil/view/'.$offre['id_user'].'\"  >
+                                    <img  width="25px" height="25px" src="'.site_url('assets/icons/navarrow.svg').'"> </a>';
+
+                                }
+                                ?>
+
+
+                            </div>
 
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Description</h5>
-                            <p class="card-text">  <?php echo word_limiter($offrej['description'],20); ?> </p>
-                            <a href="<?php echo site_url('/offres/view/'.$offrej['offres_id']) ;?>" class="btn">plus</a>
+                            <p class="card-text">  <?php echo word_limiter($offre['description'],20); ?> </p>
+                            <a href="<?php echo site_url('/offres/view/'.$offre['offres_id']) ;?>" class="btn">plus</a>
                         </div>
                     </div>
                 </li>
@@ -65,31 +146,47 @@
     </div>
 </div>
 
-<div class="container" id="c"> <div class="container">
+    <div class="container" id="c">
+        <div class="container card mt-3" >
 
-        <ul class="list-group list-group-flush">
+
+            <ul class="list-group list-group-flush">
 
 
-            <?php foreach($offresclubs as $offrec) : ?>
-                <li class="list-group-item">
-                    <div class="card-header cardtitle row text-center">
-                        <div class="col-md-2 col-sm-4"><?php if($offrec['id_user']===$user):?><a class="float-left" href="<?php echo base_url('/offres/delete/'.$offrec['offres_id']) ;?>" ><img class="float-left" width="20%" src="<?php echo site_url('assets/icons/cancel2.svg');?>"></a> <?php endif?></div>
-                        <div class="col-md-3 col-sm-4">Poste: <?php echo $offrec['poste']; ?></div>
-                        <div class="col-md-3 col-sm-4">niveau : <?php echo $offrec['division'];  ?></div>
-                        <div class="col-md-4 col-sm-10">Profil du Club <a href="<?php echo site_url().'profil/view/'.$offrec['id_user'];  ?>"> <img  width="25px" height="25px" src="<?php echo site_url('assets/icons/navarrow.svg');?>"></a></div>
+                <?php foreach($offresclubs as $offre) : ?>
+                    <li class="list-group-item">
+                        <div class="card mb-3">
+                            <div class="card-header cardtitle row text-center" style="margin-left: 0px ; margin-right: 0px">
 
-                    </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Description</h5>
-                            <p class="card-text">  <?php echo word_limiter($offrec['description'],20); ?> </p>
-                            <a href="<?php echo site_url('/offres/view/'.$offrec['offres_id']) ;?>" class="btn">plus</a>
+                                <div class="col-md-4 col-sm-6">Poste : <h6><?php echo $offre['poste']; ?></h6></div>
+                                <div class="col-md-4 col-sm-6">niveau : <h6><?php echo $offre['division'];  ?></h6></div>
+                                <div class="col-md-4 col-sm-10">
+                                    <?php
+                                    if ($offre['id_user']===$user) {
+                                        echo  '<a class="" href="'.base_url('/offres/delete/'.$offre['offres_id']).'" >
+                                        <img class="" width="25px" height="25px"  src="'.site_url('assets/icons/cancel2.svg').'"></a>';
+                                    } else {
+                                        echo 'En savoir plus sur l\'auteur  <a href="'.site_url().'profil/view/'.$offre['id_user'].'\"  >
+                                    <img  width="25px" height="25px" src="'.site_url('assets/icons/navarrow.svg').'"> </a>';
+
+                                    }
+                                    ?>
+
+
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Description</h5>
+                                <p class="card-text">  <?php echo word_limiter($offre['description'],20); ?> </p>
+                                <a href="<?php echo site_url('/offres/view/'.$offre['offres_id']) ;?>" class="btn">plus</a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            <?php endforeach;?>
-        </ul>
+                    </li>
+                <?php endforeach;?>
+            </ul>
 
-    </div> </div>
+        </div></div>
 
 
 

@@ -15,25 +15,25 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url().'Pages/view';?>"><img width="25" height="25" src="<?php echo base_url('assets/icons/home.svg');?>">  home </a>
+                    <li class="nav-item mt-1 ">
+                        <a class="nav-link" href="<?php echo base_url().'Pages/view';?>"><img width="30" height="30" src="<?php echo base_url('assets/icons/home.svg');?>"> home  </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mt-1">
                         <a class="nav-link" href="<?php echo site_url().'Profil/view/'.$this->Token_model->isLog();?>"><img width="25" height="25" src="<?php echo base_url('assets/icons/avatar.svg');?>">  Profil </a>
                     </li>
 
-                    <li class="nav-item ">
-                        <a class="nav-link" href="<?php echo base_url().'offres';?>"><img width="25" height="25" src="<?php echo base_url('assets/icons/offre.svg');?>">  Offres  </a>
+                    <li class="nav-item mt-1">
+                        <a class="nav-link" href="<?php echo base_url().'offres';?>"><img width="30" height="30" src="<?php echo base_url('assets/icons/offre.svg');?>">  Offres  </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url().'offres/recherche';?>"><img width="25" height="25" src="<?php echo base_url('assets/icons/white-loupe.svg');?>">  Recherche</a>
+                    <li class="nav-item mt-1">
+                        <a class="nav-link" href="<?php echo base_url().'offres/recherche';?>"><img width="30" height="30" src="<?php echo base_url('assets/icons/white-loupe.svg');?>">  Recherche</a>
                     </li>
 
 
                 </ul>
                 <form class="form-inline nav-item dropdown my-2 my-lg-0">
                     <a class="nav-link  " href="<?php echo base_url().'user/logout';?>" id="navbarDropdown" role="button"  aria-expanded="false" >
-                        <img src="<?php echo base_url().'assets/icons/off.svg';?>" width="25" height="25" class="d-inline-block align-top mr-1" alt="">
+                        <img src="<?php echo base_url().'assets/icons/off.svg';?>" width="30" height="30" class="d-inline-block align-top mr-1" alt="">
                     </a>
                     
                 </form>

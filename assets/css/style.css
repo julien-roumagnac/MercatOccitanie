@@ -35,6 +35,7 @@ div.card-header{
     color:whitesmoke;
 }
 .offrebtn {
+    cursor: pointer;
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
@@ -47,7 +48,11 @@ div.card-header{
     font-size: 14px;
     outline: none;
     font-weight: bold  ;
+cursor:pointer;
+
 }
-.deletebtn{
+ .timeline {
+    max-width: 500px;
+     overflow: auto;
 
 }
