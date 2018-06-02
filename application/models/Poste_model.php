@@ -7,7 +7,7 @@ class Poste_model extends CI_Model{
         $this->load->database();
     }
     public function get_postes($id=FALSE)
-    {
+    {   $id=html_escape($id);
         if ($id===FALSE){
 
             $query = $this->db->get('poste');
