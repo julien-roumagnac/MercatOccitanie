@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-$route['profil/view/(:any)']='profil/$1';
+$route['Profil/view/(:any)']='Profil/$1';
 $route['offres/create']='offres/create';
 $route['offres']='offres/index';
 $route['default_controller'] = 'Accueil/connexion';
