@@ -25,6 +25,20 @@ class Accueil extends CI_Controller{
 
     }
     public function InscriptionJoueur() {
+        $profil = array(
+
+
+
+            
+            'ville'=>$this->input->post('ville'),
+            'nom'=>$this->input->post('nom'),
+            'prenom'=>$this->input->post('prenom'),
+            'id_niveau'=>$this->input->post('niveau_id'),
+            'id_poste'=>$this->input->post('poste_id'),
+            'num_phone'=>$this->input->post('telephone'),
+            'club'=> $this->input->post('club')
+
+        );
 
         $data['niveaux']=$this->Niveau_model->get_niveaux();
         $data['postes']=$this->Poste_model->get_postes();
@@ -45,8 +59,9 @@ class Accueil extends CI_Controller{
 
 
         }else {
+
             $this->User_model->create_user();
-            $this->Joueur_model->create_joueur();
+            $this->Joueur_model->create_joueur($profil,html_escape($this->input->post('mail')));
             redirect('');}
     }
     public function inscriptionClub() {
@@ -71,8 +86,25 @@ class Accueil extends CI_Controller{
 
 
         }else {
+            
+            $data = array(
+
+
+
+            
+            'ville'=>$this->input->post('ville'),
+            'libelle'=>$this->input->post('libelle'),
+            'adresse'=>$this->input->post('adresse'),
+            'id_niveau2'=>$this->input->post('niv_team_2'),
+            'id_niveau1'=>$this->input->post('niv_team_1'),
+            'contact'=>$this->input->post('telephone'),
+            'description'=> $this->input->post('desc')
+
+            );
+            $data=html_escape($data);
+            $mail=html_escape($this->input->post('mail'));
             $this->User_model->create_user();
-            $this->Club_model->create_club();
+            $this->Club_model->create_club($data,$mail);
             redirect('');}
     }
 }
