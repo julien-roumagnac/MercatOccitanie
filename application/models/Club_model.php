@@ -7,7 +7,7 @@ class Club_model extends CI_Model{
         $this->load->database();
     }
 
-    public function get_club($id=false){
+    public function get_club($id=null){
         $id=html_escape($id);
         if ($id===FALSE){
 
@@ -16,34 +16,21 @@ class Club_model extends CI_Model{
 
             return $query->result_array();}
         else {
-            $query =$this->db->query('SELECT n1.division as d1,n2.division as d2,mail,mdp,libelle,ville,adresse,contact,description,user_id FROM club,niveau as n1 ,niveau as n2 ,user WHERE n1.niveau_id=id_niveau1 AND n2.niveau_id=id_niveau2 AND user_id=?',$id);
+            $query =$this->db->query('SELECT n1.division as d1,n2.division as d2,mail,mdp,libelle,ville,adresse,contact,description,user_id FROM club,niveau as n1 ,niveau as n2 ,user WHERE n1.niveau_id=id_niveau1 AND n2.niveau_id=id_niveau2 AND user_id=id_user AND id_user=?',$id);
 
             return $query->row_array();
         }
 
     }
-    public function create_club(){
-        $id=$this->db->query('SELECT user_id FROM user WHERE mail=?',$this->input->post('mail'))->row_array();
-        $data = array(
-
-
-
-            'id_user'=>$id['user_id'],
-            'ville'=>$this->input->post('ville'),
-            'libelle'=>$this->input->post('libelle'),
-            'adresse'=>$this->input->post('adresse'),
-            'id_niveau2'=>$this->input->post('niv_team_2'),
-            'id_niveau1'=>$this->input->post('niv_team_1'),
-            'contact'=>$this->input->post('telephone'),
-            'description'=> $this->input->post('desc')
-
-        );
-        $data=html_escape($data);
+    public function create_club($data,$mail){
+        $id=$this->db->query('SELECT user_id FROM user WHERE mail=?',$mail)->row_array();
+        $data['id_user']=$id['user_id'];
+        
         return $this->db->insert('club',$data);
     }
-    public function update($id=NULL){
+    public function update($id,$bio){
 
-        $bio=html_escape($this->input->post('bio'));
+        
 
         $this->db->query('UPDATE `club` SET `description` = ? WHERE id_user=?',array($bio,$id));
     }
