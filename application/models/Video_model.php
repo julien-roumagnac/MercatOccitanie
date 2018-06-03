@@ -20,9 +20,9 @@ class Video_model extends CI_Model{
         }
 
     }
-    public function set_video($id){
+    public function set_video($id,$idlien){
         $id=html_escape($id);
-        $idlien=$this->Video_model->getVideoID(html_escape($this->input->post('video')));
+        $idlien=$this->Video_model->getVideoID($idlien);
         $this->db->query('INSERT INTO videos (id_user,id_lien) VALUES (?, ?);',array($id,$idlien));
     }
     private function getVideoID($url){

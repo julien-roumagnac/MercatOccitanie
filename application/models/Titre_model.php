@@ -19,9 +19,9 @@ class Titre_model extends CI_Model{
         }
 
     }
-    public function set_titre($id){
+    public function set_titre($id,$newtitre){
         $id=html_escape($id);
-        $newtitre=html_escape($this->input->post('titre'));
+        
         $this->db->query('INSERT INTO titre (id_user,titre) VALUES (?, ?);',array($id,$newtitre));
     }
     public function delete_user($id){

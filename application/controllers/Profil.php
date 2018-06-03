@@ -80,18 +80,24 @@ class Profil extends CI_Controller{
         $id=$this->Token_model->isLog();
         $role=$this->User_model->get_role($id);
         $this->form_validation->set_rules('bio','biographie','required',array('required'=>'Vous n\'avez pas rentré de %s' ));
-
+       
         if($id){
+            
             if($this->form_validation->run()===FALSE){
+                printf(' form incomplet');
                 redirect('profil/view/'.$id);
+                
 
             }
             if($role==2){
-                $this->Joueur_model->update($id);
+                $bio=html_escape($this->input->post('bio'));
+                $this->Joueur_model->update($id,$bio);
                 redirect('profil/view/'.$id);
 
             }else {
-                $this->Club_model->update($id);
+                
+                $bio=html_escape($this->input->post('bio'));
+                $this->Club_model->update($id,$bio);
                 redirect('profil/view/'.$id);
             }
             }
@@ -107,8 +113,8 @@ class Profil extends CI_Controller{
                 redirect('profil/view/'.$id);
 
             }
-
-            $this->Titre_model->set_titre($id);
+            $newtitre=html_escape($this->input->post('titre'));
+            $this->Titre_model->set_titre($id,$newtitre);
             redirect('profil/view/'.$id);
 
         }else {
@@ -137,7 +143,8 @@ class Profil extends CI_Controller{
                 redirect('profil/view/'.$id);
 
             }
-            $this->Video_model->set_video($id);
+            $url=html_escape($this->input->post('video'));
+            $this->Video_model->set_video($id,$url);
             redirect('profil/view/'.$id);
         }else {
             redirect();

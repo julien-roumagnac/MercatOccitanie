@@ -110,7 +110,14 @@ class Offres extends CI_Controller{
                 $this->load->view('offres/create',$data);
                 $this->load->view('templates/footer');
             }else {
-                $this->Offre_model->create_offre($idUser);
+                 $offre = array(
+                    'id_poste'=>$this->input->post('poste_id'),
+                    'id_niveau'=>$this->input->post('niveau_id'),
+                    'description'=>$this->input->post('desc'),
+                    'id_user'=> $idUser
+
+                    );
+                $this->Offre_model->create_offre($offre);
                 redirect('offres/index');
             }
         }else {

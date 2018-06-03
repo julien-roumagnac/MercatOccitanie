@@ -97,8 +97,15 @@
                                     echo  '<a class="" href="'.base_url('/offres/delete/'.$offre['offres_id']).'" >
                                         <img class="" width="25px" height="25px"  src="'.site_url('assets/icons/cancel2.svg').'"></a>';
                                 } else {
-                                    echo 'En savoir plus sur l\'auteur  <a href="'.site_url().'profil/view/'.$offre['id_user'].'\"  >
+                                    if($role==2){
+                                        echo 'En savoir plus sur ce joueur <a href="'.site_url().'profil/view/'.$offre['id_user'].'\"  >
                                     <img  width="25px" height="25px" src="'.site_url('assets/icons/navarrow.svg').'"> </a>';
+                                    }else {
+                                        echo 'En savoir plus surce club  <a href="'.site_url().'profil/view/'.$offre['id_user'].'\"  >
+                                    <img  width="25px" height="25px" src="'.site_url('assets/icons/navarrow.svg').'"> </a>';
+
+                                    }
+                                    
 
                                 }
                                 ?>

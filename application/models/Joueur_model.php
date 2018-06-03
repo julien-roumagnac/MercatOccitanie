@@ -22,28 +22,15 @@ class Joueur_model extends CI_Model{
         }
 
     }
-    public function create_joueur(){
-        $id=$this->db->query('SELECT user_id FROM user WHERE mail=?',$this->input->post('mail'))->row_array();
-        $data = array(
-
-
-
-            'id_user'=>$id['user_id'],
-            'ville'=>$this->input->post('ville'),
-            'nom'=>$this->input->post('nom'),
-            'prenom'=>$this->input->post('prenom'),
-            'id_niveau'=>$this->input->post('niveau_id'),
-            'id_poste'=>$this->input->post('poste_id'),
-            'num_phone'=>$this->input->post('telephone'),
-            'club'=> $this->input->post('club')
-
-        );
+    public function create_joueur($data,$mail){
+        $id=$this->db->query('SELECT user_id FROM user WHERE mail=?',$mail)->row_array();
+        $data['id_user']=$id['user_id'];
         $data=html_escape($data);
         return $this->db->insert('joueur',$data);
     }
-    public function update($id=NULL){
+    public function update($id=NULL,$bio){
         $id=html_escape($id);
-        $bio=html_escape($this->input->post('bio'));
+        
         $this->db->query('UPDATE `joueur` SET `bio` = ? WHERE id_user=?',array($bio,$id));
     }
     public function delete_user($id){

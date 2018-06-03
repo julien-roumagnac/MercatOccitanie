@@ -6,10 +6,9 @@ class User_model extends CI_Model{
     {
         $this->load->database();
     }
-    public function exist(){
+    public function exist($mail,$mdp){
 
-           $mail = html_escape($this->input->post('mail'));
-           $mdp = html_escape($this->input->post('mdp'));
+           
 
         $query = $this->db->query('SELECT * FROM user WHERE mail=?',$mail)->result_array();
 

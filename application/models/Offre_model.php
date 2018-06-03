@@ -28,16 +28,11 @@ class Offre_model extends CI_Model{
         return $this->db->query('SELECT offres_id,description,poste,division,id_user,date_creation FROM offres,niveau,poste WHERE poste_id=offres.id_poste AND niveau_id=offres.id_niveau AND id_user in (SELECT id_user FROM club ) ORDER BY offres_id DESC')->result_array() ;
     }
 
-    public function create_offre($iduser){
+    public function create_offre($data){
 
-        $data = array(
-            'id_poste'=>$this->input->post('poste_id'),
-            'id_niveau'=>$this->input->post('niveau_id'),
-            'description'=>$this->input->post('desc'),
-            'id_user'=> $iduser
-
-        );
+       
         $data=html_escape($data);
+
         return $this->db->insert('offres',$data);
     }
 
